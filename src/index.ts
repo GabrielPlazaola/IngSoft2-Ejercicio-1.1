@@ -22,7 +22,7 @@ export class Carpeta extends Elemento{
     }
     modificartamanio(){
         var i: number = 0;
-        var resul: number = 0;
+        var resul: number = this.nombre.length;
         while (i <= this.elementos.length-1){
             resul = resul+this.elementos[i].tamanio;
             i = i+1;
@@ -36,7 +36,7 @@ export class Carpeta extends Elemento{
     constructor(nom:string){
         super();
         this.nombre = nom;
-        this.tamanio = 0;
+        this.tamanio = this.nombre.length;
         this.elementos = [];
     }
 }

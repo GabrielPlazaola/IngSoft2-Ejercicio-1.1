@@ -47,7 +47,7 @@ describe('testing index file', () => {
     carpeta1.agregaralista(foto2);
     carpeta1.agregaralista(video1);
     
-    expect(carpeta1.mostrartamanio()).toEqual( 16 );
+    expect(carpeta1.mostrartamanio()).toEqual( 24 );
   });
 });
 
@@ -75,6 +75,6 @@ describe('testing index file', () => {
     carpeta2.agregaralista(carpeta3);
     carpeta3.agregaralista(foto4);
 
-    expect(carpeta1.mostrartamanio()).toEqual( 33 );
+    expect(carpeta1.mostrartamanio()).toEqual( 57 );
   });
 });
