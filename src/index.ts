@@ -1,13 +1,14 @@
 class Elemento {
     nombre: string;
-    tamanio: number;
+    tamanio(){
+        return this.nombre.length
+    }
   }
 
 export class Carpeta extends Elemento{
     elementos: Array<Elemento>;
     agregaralista(x:Elemento) {
         this.elementos.push(x);
-        this.modificartamanio();
     }
     mostrarlista(){
         var list: Array<string>;
@@ -20,23 +21,18 @@ export class Carpeta extends Elemento{
         }
         return list
     }
-    modificartamanio(){
+    tamanio():number{
+        var tamaniocalculado: number = this.nombre.length;
         var i: number = 0;
-        var resul: number = this.nombre.length;
-        while (i <= this.elementos.length-1){
-            resul = resul+this.elementos[i].tamanio;
+        while (i < this.elementos.length){
+            tamaniocalculado = tamaniocalculado + this.elementos[i].tamanio()
             i = i+1;
         }
-        this.tamanio = resul;
-    }
-    mostrartamanio(){
-        this.modificartamanio();
-        return this.tamanio;
+        return tamaniocalculado;
     }
     constructor(nom:string){
         super();
         this.nombre = nom;
-        this.tamanio = this.nombre.length;
         this.elementos = [];
     }
 }
@@ -53,7 +49,6 @@ export class Foto extends Archivo{
     constructor(nom:string, tip:string, dim:string){
         super()
         this.nombre=nom;
-        this.tamanio=this.nombre.length;
         this.tipo=tip;
         this.dimensiones=dim;
     }
@@ -64,7 +59,6 @@ export class Video extends Archivo{
     constructor(nom:string, tip:string, dur:string){
         super()
         this.nombre=nom;
-        this.tamanio=this.nombre.length;
         this.tipo=tip;
         this.duracion=dur;
     }
